@@ -18,15 +18,24 @@ def key_generator(keyword, len_plaintext=0):
 
 def generate_encrypt_table(alphabet):
 
+    input = []
+    for i in alphabet:
+        input.append(i)
+
     output = []
-    for i in range(0, 26):
-        for j in alphabet:
-            output[i].append(j)
+    num1 = 1
+    while num1 != 27:
+        to_append = []
+        for j in input:
+            to_append.append(j)
 
-        pop_val = alphabet.pop(0)
-        alphabet.append(pop_val)
-
-    print(output)
+        # print("this is to_append (num1 = {}): {}".format(num1, to_append))
+        output.append(to_append)
+        pop_val = input.pop(0)
+        # print("pop val:", pop_val)
+        input.append(pop_val)
+        num1 += 1
+    return output
 
 
 generate_encrypt_table(alphabet)
