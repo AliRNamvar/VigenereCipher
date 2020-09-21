@@ -18,6 +18,9 @@ def key_generator(keyword, len_plaintext=0):
     return key_
 
 
+print("add something to hub in pycharm")
+
+
 def generate_encrypt_table(alphabet):
 
     input = []
