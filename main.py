@@ -2,7 +2,11 @@
 # secondary branch
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
-input_text = 'geeksforgeeks'
+input_text = input("Enter your text: ")
+input_text = input_text.lower()
+keyword = input("and your keyword is: ")
+keyword = keyword.lower()
+situation1 = input("Chose between \"Encryption\" or \"Decryption\": ")
 
 
 def key_generator(keyword, len_plaintext=0):
@@ -61,7 +65,7 @@ def encryption(key_encrypt=None, plain_text=None, encrypt_table=None):
     return ''.join(ciphertext)
 
 
-def decryption(encrypt_text, encrypt_table, key_encrypt):
+def decryption(encrypt_text=None, encrypt_table=None, key_encrypt=None):
 
     decryption_text = []
     index_key = 0
@@ -80,11 +84,23 @@ def decryption(encrypt_text, encrypt_table, key_encrypt):
     return ''.join(decryption_text)
 
 
-generate_encrypt_table(alphabet)
-key = key_generator(keyword='ayush', len_plaintext=len('geeksforgeeks'))
-# print(key)
+main_table = generate_encrypt_table(alphabet)
+key = key_generator(keyword=keyword, len_plaintext=len(input_text))
 
-encrypted_text = encryption(key_encrypt=key, plain_text=input_text, encrypt_table=generate_encrypt_table(alphabet))
-# print(encrypted_text)
-decrypted_text = decryption(encrypted_text, generate_encrypt_table(alphabet), key)
-print(decrypted_text)
+
+unvalid_input = True
+while unvalid_input:
+
+    if situation1.lower() == "encryption" or situation1.lower() == "decryption":
+        unvalid_input = False
+
+    else:
+        situation1 = input("Unvalid input!\nTry again: ")
+
+
+if situation1.lower() == "encryption":
+    encrypted_text = encryption(key_encrypt=key, plain_text=input_text, encrypt_table=main_table)
+    print("Your text: ", input_text, "\nEncrypted text: ", encrypted_text, sep='')
+elif situation1.lower() == "decryption":
+    decrypted_text = decryption(input_text, main_table, key)
+    print("Your text: ", input_text, "\nDecrypted text: ", decrypted_text, sep='')
