@@ -101,6 +101,7 @@ while unvalid_input:
 if situation1.lower() == "encryption":
     encrypted_text = encryption(key_encrypt=key, plain_text=input_text, encrypt_table=main_table)
     print("Your text: ", input_text, "\nEncrypted text: ", encrypted_text, sep='')
+
 elif situation1.lower() == "decryption":
     decrypted_text = decryption(input_text, main_table, key)
     print("Your text: ", input_text, "\nDecrypted text: ", decrypted_text, sep='')
