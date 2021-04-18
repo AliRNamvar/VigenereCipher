@@ -1,5 +1,4 @@
 # Vigenere cipher
-# secondary branch
 
 alphabet = 'abcdefghijklmnopqrstuvwxyz'
 input_text = input("Enter your text: ")
